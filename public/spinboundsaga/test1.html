@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 100vw;
+			height: 100vh;
+			background: linear-gradient(180deg, #f9e4b7, #e6c199);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding: 50px;
+			box-sizing: border-box;
+			position: relative;
+		}
+		.logo-empty {
+			width: 300px;
+		}
+		.version {
+			position: absolute;
+			bottom: 20px;
+		}
+
+		#slots{
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			gap: 1.5px;
+			margin-top: -20px;
+		}
+
+		.slotmask {
+			width: 23px;
+			height: 35px;
+			overflow: hidden;
+		}
+		.slot {
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+		}
+		.item img {
+			width: 100%;
+		}
+		@keyframes spin {
+			0% { transform: translateY(0); }
+			100% { transform: translateY(calc(-100% + 35px)); }
+		}
+		.slot {
+			animation: spin 1s normal infinite linear;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- Container for dynamically generated slots -->
+		<div id="slots"></div>
+
+		<img class="logo-empty" src="TemplateData/logo-empty.png" alt="">
+		<p class="version">Version.1.0</p>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			let startTime = Date.now();
+			const slotData = [
+				['Spin1.png', 'Spin2.png', 'Spin3.png', 'Spin4.png'],
+				['Spin2.png', 'Spin3.png', 'Spin4.png', 'Spin1.png'],
+				['Spin3.png', 'Spin4.png', 'Spin1.png', 'Spin2.png'],
+				['Spin4.png', 'Spin1.png', 'Spin2.png', 'Spin3.png'],
+				['Bound 1.png', 'Bound 2.png', 'Bound 3.png', 'Bound 4.png', 'Bound 5.png'],
+				['Bound 2.png', 'Bound 3.png', 'Bound 4.png', 'Bound 5.png', 'Bound 1.png'],
+				['Bound 3.png', 'Bound 4.png', 'Bound 5.png', 'Bound 1.png', 'Bound 2.png'],
+				['Bound 4.png', 'Bound 5.png', 'Bound 1.png', 'Bound 2.png', 'Bound 3.png'],
+				['Bound 5.png', 'Bound 1.png', 'Bound 2.png', 'Bound 3.png', 'Bound 4.png']
+			];
+
+			const slotsContainer = document.getElementById("slots");
+			slotData.forEach((images, index) => {
+				const slotmask = document.createElement("div");
+				slotmask.classList.add("slotmask");
+				slotmask.id = `slot${index + 1}`;
+
+				const slot = document.createElement("div");
+				slot.classList.add("slot");
+
+				images.forEach(imgSrc => {
+					const item = document.createElement("div");
+					item.classList.add("item");
+
+					const img = document.createElement("img");
+					img.src = `TemplateData/puzzleLogo/${imgSrc}`;
+					item.appendChild(img);
+
+					slot.appendChild(item);
+				});
+
+				slotmask.appendChild(slot);
+				slotsContainer.appendChild(slotmask);
+			});
+
+			// Set up animations for each slot
+			const slots = document.querySelectorAll(".slotmask");
+			let reverse = 1;
+			slots.forEach((slotmask, index) => {
+				const slot = slotmask.querySelector(".slot");
+				const items = slot.querySelectorAll(".item");
+
+				const itemHeight = 35;
+				const totalHeight = items.length * itemHeight;
+				slot.style.height = `${totalHeight}px`;
+				reverse *= -1;
+
+				const spinDirection = reverse === 1 ? "normal" : "reverse";
+				slot.style.animation = `spin${totalHeight} 1s ${spinDirection} infinite linear`;
+
+				const keyframes = `
+					@keyframes spin${totalHeight} {
+						0% { transform: translateY(0); }
+						100% { transform: translateY(calc(-100% + 35px)); }
+					}
+				`;
+
+				const styleSheet = document.styleSheets[0];
+				styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+				let reverseInterval = setInterval(() => {
+		            // Pause animasi setelah 5 detik
+		            if (Date.now() - startTime >= 2000*(index+1)) {
+		                // slot.style.animationPlayState = "paused"; // Hentikan animasi
+		                clearInterval(reverseInterval); // Hentikan pengecekan
+		                slot.style.animationIterationCount = "1"; 
+		            }
+		        }, 50); // Mengecek setiap 100ms untuk kondisi reverse dan pause
+			});
+		});
+	</script>
+</body>
+</html>

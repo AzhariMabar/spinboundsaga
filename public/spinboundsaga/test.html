@@ -1,0 +1,124 @@
+<div class="row">
+  <div class="column">
+    <div class="slot-mask">
+      <div class="slot" id="slot1">
+        <div class="item">🍒</div>
+        <div class="item">🍋</div>
+        <div class="item">🍉</div>
+        <div class="item">🍇</div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="slot-mask">
+      <div class="slot" id="slot2">
+        <div class="item">🍒</div>
+        <div class="item">🍋</div>
+        <div class="item">🍉</div>
+        <div class="item">🍇</div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="slot-mask">
+      <div class="slot" id="slot3">
+        <div class="item">🍒</div>
+        <div class="item">🍋</div>
+        <div class="item">🍉</div>
+        <div class="item">🍇</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #f9e4b7, #e6c199);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  width: 120px;
+}
+
+.slot-mask {
+  width: 120px;
+  height: 120px;
+  overflow: hidden; /* Masking untuk batas slot */
+  border: 4px solid #764c24;
+  border-radius: 8px;
+  background: #fff8e1;
+  position: relative;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  animation: spin infinite linear 0.5s; /* Animasi default */
+  position: relative;
+}
+
+.item {
+  width: 120px;
+  height: 120px;
+  font-size: 50px;
+  line-height: 120px;
+  text-align: center;
+  background: #fff8e1;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Animasi bergerak ke bawah */
+@keyframes spin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-480px); /* Total height = itemHeight x totalItems */
+  }
+}
+
+
+</style>
+
+<script>
+  const slots = [
+  { id: "slot1", spin: false },
+  { id: "slot2", spin: false },
+  { id: "slot3", spin: false },
+];
+
+// Fungsi untuk menghentikan animasi
+function stopSpin(slotId, stopTime) {
+  setTimeout(() => {
+    const slot = document.getElementById(slotId);
+    slot.style.animation = "none"; // Menghentikan animasi
+    slot.style.transform = `translateY(${Math.floor(Math.random() * 4) * -120}px)`; // Posisi acak
+  }, stopTime);
+}
+
+// Fungsi untuk memulai semua spin
+function startSlots() {
+  slots.forEach((slot, index) => {
+    // Memberikan waktu berhenti berbeda untuk setiap slot
+    stopSpin(slot.id, 2000 + index * 1000);
+  });
+}
+
+// Mulai animasi slot
+startSlots();
+
+
+</script>
