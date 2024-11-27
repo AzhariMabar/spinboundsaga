@@ -142,9 +142,12 @@
             slots.forEach((slotmask, index) => {
               const slot = slotmask.querySelector(".slot");
               const items = slot.querySelectorAll(".item");
-              var indexSlot = (index+1/10);
-              if(progress > indexSlot)
-                slot.style.animationIterationCount = "1"; 
+              const indexSlot = (index)/slots.length;
+
+              if (progress > indexSlot) {
+                slot.style.animationIterationCount = "0";
+              }
+
             });
 
           }
