@@ -92,6 +92,21 @@
       </div>
     </div>
     <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('keygame');
+      
+      setCookie("minigames", token, 365); 
+
+      function setCookie(name, value, days) {
+          var expires = "";
+          if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }      
+
       var canvas = document.querySelector("#unity-canvas");
 
       var buildUrl = "Build";
@@ -229,6 +244,7 @@
 
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
 
         
       });
