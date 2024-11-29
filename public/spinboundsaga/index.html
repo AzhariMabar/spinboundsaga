@@ -92,6 +92,12 @@
       </div>
     </div>
     <script>
+      window.addEventListener("load", function () {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("ServiceWorker.js");
+        }
+      });
+      
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get('keygame');
       
