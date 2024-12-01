@@ -4,8 +4,7 @@ const contentToCache = [
     "Build/build.framework.js.unityweb",
     "Build/build.data.unityweb",
     "Build/build.wasm.unityweb",
-    "TemplateData/style.css"
-
+    "index.html"
 ];
 
 self.addEventListener('install', function (e) {
