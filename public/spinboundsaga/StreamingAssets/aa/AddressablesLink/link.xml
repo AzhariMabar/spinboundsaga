@@ -51,25 +51,25 @@
     <type fullname="VfxManager" preserve="all" />
     <type fullname="ViewportHandler" preserve="all" />
     <type fullname="WeaponData" preserve="all" />
+    <type fullname=".ItemHeroes" preserve="nothing" serialized="true" />
+    <type fullname=".Stats" preserve="nothing" serialized="true" />
     <type fullname=".BodyParts" preserve="nothing" serialized="true" />
     <type fullname=".HeroesBase/ekspresi" preserve="nothing" serialized="true" />
-    <type fullname=".Stats" preserve="nothing" serialized="true" />
     <type fullname=".characterToData" preserve="nothing" serialized="true" />
     <type fullname=".gender" preserve="nothing" serialized="true" />
     <type fullname=".itemData" preserve="nothing" serialized="true" />
-    <type fullname=".DroppedItem/DroppedItemIcons" preserve="nothing" serialized="true" />
-    <type fullname=".HomepageUIManager/ShopConfirmationPopUp" preserve="nothing" serialized="true" />
-    <type fullname=".ItemHeroes" preserve="nothing" serialized="true" />
-    <type fullname=".myAnimTweenz/tweens" preserve="nothing" serialized="true" />
-    <type fullname=".myAnimTweenz/tweens/path" preserve="nothing" serialized="true" />
     <type fullname=".BattleData" preserve="nothing" serialized="true" />
     <type fullname=".DropItem" preserve="nothing" serialized="true" />
+    <type fullname=".DroppedItem/DroppedItemIcons" preserve="nothing" serialized="true" />
     <type fullname=".EntityStats" preserve="nothing" serialized="true" />
     <type fullname=".LevelData" preserve="nothing" serialized="true" />
     <type fullname=".MonsterList" preserve="nothing" serialized="true" />
     <type fullname=".ParallaxBackground/MaterialLoop" preserve="nothing" serialized="true" />
     <type fullname=".ProjectileList" preserve="nothing" serialized="true" />
     <type fullname=".VFXList" preserve="nothing" serialized="true" />
+    <type fullname=".myAnimTweenz/tweens" preserve="nothing" serialized="true" />
+    <type fullname=".myAnimTweenz/tweens/path" preserve="nothing" serialized="true" />
+    <type fullname=".HomepageUIManager/ShopConfirmationPopUp" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="CFXRRuntime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="CartoonFX.CFXR_Effect" preserve="all" />
@@ -94,7 +94,6 @@
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
-    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.LegacyResourcesProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
   </assembly>
   <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -106,17 +105,17 @@
     <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
     <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/DropdownEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionData" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionDataList" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
@@ -186,9 +185,9 @@
     <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.UI.Slider/SliderEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Canvas" preserve="all" />
