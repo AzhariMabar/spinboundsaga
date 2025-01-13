@@ -1,4 +1,4 @@
-const cacheName = "MajaMojo-SPINBOUND SAGA-1.1";
+const cacheName = "MajaMojo-SPINBOUND SAGA-1.1.0(01)";
 const contentToCache = [
     "Build/build.loader.js",
     "Build/build.framework.js.unityweb",
