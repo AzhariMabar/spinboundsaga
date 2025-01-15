@@ -5,7 +5,7 @@
     "display": "fullscreen",
     "background_color": "#231F20",
     "theme_color": "#000",
-    "description": "version1.1",
+    "description": "version1.2",
     "icons": [{
       "src": "TemplateData/icon.png",
       "sizes": "144x144",
