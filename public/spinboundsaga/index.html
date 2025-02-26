@@ -85,6 +85,18 @@
         max-width: 100%;
       }
     }
+
+    .log{
+      position: fixed;
+      z-index: 99999;
+      bottom: 30px;
+      right: 200px;
+
+      width: 150px;
+      color: white;
+      font-size: 10px;
+
+    }
   </style>
 
   <body>
@@ -106,6 +118,8 @@
         </div>
       </div>
     </div>
+
+    <div class="log">test/12mb</div>
     <script>
       
       const urlParams = new URLSearchParams(window.location.search);
@@ -267,6 +281,33 @@
         
       });
     });
+
+
+    function logNetworkResources() {
+        // Ambil semua resource yang sedang di-load
+        const resources = performance.getEntriesByType("resource");
+
+        // Filter dan log informasi yang relevan
+        resources.forEach(resource => {
+            console.log(`Resource: ${resource.name}`);
+            console.log(`Type: ${resource.initiatorType}`);
+            console.log(`Start Time: ${resource.startTime} ms`);
+            console.log(`Duration: ${resource.duration} ms`);
+            console.log(`Transferred Size: ${resource.encodedBodySize} bytes`);
+            console.log(`Decoded Size: ${resource.decodedBodySize} bytes`);
+            console.log('-----------------------------------');
+
+            document.querySelector('.log').innerHTML = 
+          `Resource: ${resource.name}, 
+          Type: ${resource.initiatorType}, 
+          Transferred Size: ${resource.encodedBodySize} bytes, 
+          Decoded Size: ${resource.decodedBodySize} bytes`;
+        });
+
+    }
+
+    // Panggil fungsi ini untuk log resource saat loading
+    logNetworkResources();
   </script>
   </body>
 </html>
